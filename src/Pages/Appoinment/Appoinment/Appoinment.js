@@ -10,7 +10,7 @@ const Appoinment = () => {
         selectedDate={selectedDate}
         setSlectedDate={setSlectedDate}
       ></AppoinmentBanner>
-      <AbilableAppoinment></AbilableAppoinment>
+      <AbilableAppoinment selectedDate={selectedDate}></AbilableAppoinment>
     </div>
   );
 };
