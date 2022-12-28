@@ -19,13 +19,13 @@ const AbilableAppoinment = ({ selectedDate }) => {
     queryKey: ["appointmentOptions", date],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/appointmentOptions?date=${date}`
+        `https://doctor-portal-server-ashy.vercel.app/appointmentOptions?date=${date}`
       );
       const data = await res.json();
       return data;
     },
 
-    // fetch(`http://localhost:5000/appointmentOptions?date=${date}`).then(
+    // fetch(`https://doctor-portal-server-ashy.vercel.app/appointmentOptions?date=${date}`).then(
     //   (res) => res.json()
     // ),
   });

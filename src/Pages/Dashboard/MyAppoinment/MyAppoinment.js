@@ -5,7 +5,7 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 const MyAppoinment = () => {
   const { user } = useContext(AuthContext);
 
-  const url = `http://localhost:5000/bookings?email=${user?.email}`;
+  const url = `https://doctor-portal-server-ashy.vercel.app/bookings?email=${user?.email}`;
   console.log(url);
 
   const { data: bookings = [] } = useQuery({
