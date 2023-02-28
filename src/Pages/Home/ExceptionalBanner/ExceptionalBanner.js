@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import tritment from "../../../assets/images/treatment.png";
 
 const ExceptionalBanner = () => {
@@ -20,9 +21,12 @@ const ExceptionalBanner = () => {
             here', making it look like readable English. Many desktop publishing
             packages and web page
           </p>
-          <button className="btn btn-primary bg-gradient-to-r from-primary to-blue-300 text-white">
+          <Link
+            to="/appoinment"
+            className="btn btn-primary bg-gradient-to-r from-primary to-blue-300 text-white"
+          >
             Get Started
-          </button>
+          </Link>
         </div>
       </div>
     </div>

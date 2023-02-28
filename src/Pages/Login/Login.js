@@ -24,7 +24,7 @@ const Login = () => {
     navigate(from, { replace: true });
   }
 
-  const { signIn } = useContext(AuthContext);
+  const { signIn, googleLogin } = useContext(AuthContext);
   const handleLogin = (data) => {
     console.log(data);
     setLoginError("");
