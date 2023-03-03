@@ -24,7 +24,7 @@ const Login = () => {
     navigate(from, { replace: true });
   }
 
-  const { signIn, googleLogin } = useContext(AuthContext);
+  const { signIn, providerLogIn } = useContext(AuthContext);
   const handleLogin = (data) => {
     console.log(data);
     setLoginError("");
@@ -37,6 +37,18 @@ const Login = () => {
       .catch((error) => {
         console.error(error.message);
         setLoginError(error.message);
+      });
+  };
+
+  // handleGoogleLogin
+  const handleGoogleLogin = () => {
+    providerLogIn()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error(error);
       });
   };
 
@@ -90,7 +102,9 @@ const Login = () => {
           </Link>
         </p>
         <div className="divider text-secondary">OR</div>
-        <button className="btn btn-outline w-full">CONTINT WITH GOOGLE</button>
+        <button onClick={handleGoogleLogin} className="btn btn-outline w-full">
+          CONTINT WITH GOOGLE
+        </button>
       </div>
     </div>
   );

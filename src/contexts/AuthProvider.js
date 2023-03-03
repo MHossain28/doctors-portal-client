@@ -40,8 +40,9 @@ const AuthProvider = ({ children }) => {
   };
 
   // Google Login
-  const googleLogin = () => {
-    signInWithPopup(auth, provider);
+  const providerLogIn = () => {
+    setLoading(true);
+    return signInWithPopup(auth, provider);
   };
 
   //   User Current Cheack
@@ -58,7 +59,7 @@ const AuthProvider = ({ children }) => {
     signIn,
     updateUser,
     logOut,
-    googleLogin,
+    providerLogIn,
     user,
     loading,
   };

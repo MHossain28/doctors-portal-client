@@ -13,7 +13,7 @@ const SignUp = () => {
   } = useForm();
 
   //   sign up handle
-  const { createUser, updateUser } = useContext(AuthContext);
+  const { createUser, updateUser, providerLogIn } = useContext(AuthContext);
   const [signUpError, setSignUpError] = useState("");
 
   const [createdUserEmail, setCreatedUserEmail] = useState("");
@@ -45,6 +45,18 @@ const SignUp = () => {
       .catch((error) => {
         console.log(error);
         setSignUpError(error.message);
+      });
+  };
+
+  // handleGoogleLogin
+  const handleGoogleLogin = () => {
+    providerLogIn()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error(error);
       });
   };
 
@@ -139,7 +151,9 @@ const SignUp = () => {
           </Link>
         </p>
         <div className="divider text-secondary">OR</div>
-        <button className="btn btn-outline w-full">CONTINT WITH GOOGLE</button>
+        <button onClick={handleGoogleLogin} className="btn btn-outline w-full">
+          CONTINT WITH GOOGLE
+        </button>
       </div>
     </div>
   );
